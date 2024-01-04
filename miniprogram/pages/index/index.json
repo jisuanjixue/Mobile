@@ -10,6 +10,7 @@
     "van-col": "@vant/weapp/col/index",
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
+    "wux-button": "wux-weapp/button/index",
     "l-capsule-bar":"/miniprogram_npm/lin-ui/capsule-bar/index"
   },
   "navigationStyle": "custom"

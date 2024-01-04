@@ -188,5 +188,6 @@
       </van-grid>
     </view>
   </view>
+  <wux-button size="default" type="dark">Button</wux-button>
   <view class="version" wx:if="{{version}}"> 当前版本： {{version}} </view>
 </view>
