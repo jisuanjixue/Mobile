@@ -1,7 +1,7 @@
 // index.ts
 import { signal, effect } from "../../miniprogram_npm/@preact/signals-core/index";
-import complaintSvc from "../../services/complaintSvc";
-import messageSvc from "../../services/messageSvc";
+// import complaintSvc from "../../services/complaintSvc";
+// import messageSvc from "../../services/messageSvc";
 import host from "../../utils/request/apiConfig";
 import deviceUtil from "../../miniprogram_npm/lin-ui/utils/device-util";
 import tokenUtils from "../../utils/tokenUtils";
@@ -20,7 +20,7 @@ const userInfo = signal({ name: wx.getStorageSync("name"), avatar: wx.getStorage
 Page({
   onLoad() {
     this.getList();
-    this.getComplaintStatics();
+    // this.getComplaintStatics();
     userInfo.value = { ...userInfo.value, name: wx.getStorageSync("name"), type: wx.getStorageSync("type") };
     isLogin.value = tokenUtils.isAuthorized();
   },
@@ -37,57 +37,57 @@ Page({
     });
   },
 
-  async getMessageCount() {
-    try {
-      const res: any = await messageSvc.getMessageCount();
-      if (res.success) {
-        count.value = res.data;
-      }
-    } catch (error) {
-      wx.showToast({
-        title: "获取失败",
-        icon: "error",
-        duration: 2000
-      });
-    }
-  },
+  // async getMessageCount() {
+  //   try {
+  //     const res: any = await messageSvc.getMessageCount();
+  //     if (res.success) {
+  //       count.value = res.data;
+  //     }
+  //   } catch (error) {
+  //     wx.showToast({
+  //       title: "获取失败",
+  //       icon: "error",
+  //       duration: 2000
+  //     });
+  //   }
+  // },
 
-  getComplaintStatics: async () => {
-    try {
-      const res = await complaintSvc.geStatics();
-      if (res.success) {
-        steps.value = res.data?.map(v => ({
-          text: (() => {
-            if (v.status === 0) return "研判中";
-            if (v.status === 1) return "处置中";
-            if (v.status === 2) return "待评价";
-            return "已关闭";
-          })(),
-          desc: `${v.amount}件`,
-          inactiveIcon: (() => {
-            if (v.status === 0) return "../../assets/images/complaint-0.png";
-            if (v.status === 1) return "../../assets/images/complaint-1.png";
-            if (v.status === 2) return "../../assets/images/complaint-2.png";
-            return "../../assets/images/complaint-3.png";
-          })(),
-          color: (() => {
-            if (v.status === 0) return "#8e7aa7";
-            if (v.status === 1) return "#86c4ba";
-            if (v.status === 2) return "#4c6aaf";
-            return "#898d96";
-          })()
-        }));
-      } else {
-        steps.value = [];
-      }
-    } catch (error) {
-      wx.showToast({
-        title: "请求失败",
-        icon: "error",
-        duration: 2000
-      });
-    }
-  },
+  // getComplaintStatics: async () => {
+  //   try {
+  //     const res = await complaintSvc.geStatics();
+  //     if (res.success) {
+  //       steps.value = res.data?.map(v => ({
+  //         text: (() => {
+  //           if (v.status === 0) return "研判中";
+  //           if (v.status === 1) return "处置中";
+  //           if (v.status === 2) return "待评价";
+  //           return "已关闭";
+  //         })(),
+  //         desc: `${v.amount}件`,
+  //         inactiveIcon: (() => {
+  //           if (v.status === 0) return "../../assets/images/complaint-0.png";
+  //           if (v.status === 1) return "../../assets/images/complaint-1.png";
+  //           if (v.status === 2) return "../../assets/images/complaint-2.png";
+  //           return "../../assets/images/complaint-3.png";
+  //         })(),
+  //         color: (() => {
+  //           if (v.status === 0) return "#8e7aa7";
+  //           if (v.status === 1) return "#86c4ba";
+  //           if (v.status === 2) return "#4c6aaf";
+  //           return "#898d96";
+  //         })()
+  //       }));
+  //     } else {
+  //       steps.value = [];
+  //     }
+  //   } catch (error) {
+  //     wx.showToast({
+  //       title: "请求失败",
+  //       icon: "error",
+  //       duration: 2000
+  //     });
+  //   }
+  // },
 
   getList: async () => {
     try {
@@ -121,7 +121,7 @@ Page({
   },
 
   onShow() {
-    this.getMessageCount();
+    // this.getMessageCount();
     effect(() => {
       this.setData({
         steps: steps.value,

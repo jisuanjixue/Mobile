@@ -1,8 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/negative/index",
-    "pages/efficacy/index",
     "pages/user/index"
   ],
   "window": {
@@ -31,45 +29,6 @@
       }
     ]
   },
-  "subPackages": [
-    {
-      "root": "packageA",
-      "pages": [
-        "pages/register/register",
-        "pages/login/login"
-      ]
-    },
-    {
-      "root": "packageB",
-      "pages": [
-      ]
-    },
-    {
-      "root": "packageC",
-      "pages": [
-      ]
-    },
-    {
-      "root": "packageD",
-      "pages": [
-      ]
-    },
-    {
-      "root": "packageE",
-      "pages": [
-      ]
-    },
-    {
-      "root": "packageF",
-      "pages": [
-      ]
-    },
-    {
-      "root": "packageG",
-      "pages": [
-      ]
-    }
-  ],
   "usingComponents": {
     "van-config-provider": "@vant/weapp/config-provider/index"
   },

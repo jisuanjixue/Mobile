@@ -1,11 +1,11 @@
 import { signal, effect } from "../../miniprogram_npm/@preact/signals-core/index";
-import newSvc from "../..//services/newSvc";
-import bannerSvc from "../..//services/bannerSvc";
+// import newSvc from "../..//services/newSvc";
+// import bannerSvc from "../..//services/bannerSvc";
 import tokenUtils from "../../utils/tokenUtils";
 import hythrottle from "../../utils/throttle";
 import utils from "../../utils/util";
-import host from "../../utils/request/apiConfig";
-import util from "../../utils/dayjsUtils";
+// import host from "../../utils/request/apiConfig";
+// import util from "../../utils/dayjsUtils";
 import deviceUtil from "../../miniprogram_npm/lin-ui/utils/device-util";
 
 const querySelectThrottle = hythrottle(utils.querySelect, 100);
@@ -19,9 +19,9 @@ const version = signal("");
 
 Page({
   onLoad() {
-    this.queryArticleList();
-    this.queryBannerList();
-    this.queryBannersList();
+    // this.queryArticleList();
+    // this.queryBannerList();
+    // this.queryBannersList();
     isLogin.value = tokenUtils.isAuthorized();
     userInfo.value = { ...userInfo.value, name: wx.getStorageSync("name") };
     const ccountInfo = wx.getAccountInfoSync();
@@ -41,20 +41,20 @@ Page({
     });
   },
 
-  async queryArticleList() {
-    try {
-      const res = await newSvc.getArticleList("Notice", 1, 5);
-      if (res.success) {
-        news.value = res.data;
-      }
-    } catch (error) {
-      wx.showToast({
-        title: "请求失败",
-        icon: "error",
-        duration: 2000
-      });
-    }
-  },
+  // async queryArticleList() {
+  //   try {
+  //     const res = await newSvc.getArticleList("Notice", 1, 5);
+  //     if (res.success) {
+  //       news.value = res.data;
+  //     }
+  //   } catch (error) {
+  //     wx.showToast({
+  //       title: "请求失败",
+  //       icon: "error",
+  //       duration: 2000
+  //     });
+  //   }
+  // },
 
   onBannerClick(e: any) {
     const sourceId = e.currentTarget.dataset.sourceid;
@@ -78,45 +78,45 @@ Page({
     });
   },
 
-  queryBannerList: async () => {
-    try {
-      const res = await bannerSvc.getList();
-      if (res.success) {
-        const list = res.data;
-        bannerList.value = list?.map(v => ({ ...v, mobilePreview: v.mobilePreview ? `${host.api.baseUrl}/upload${v.mobilePreview}` : "" }));
-      } else {
-        bannerList.value = [];
-      }
-    } catch (error) {
-      wx.showToast({
-        title: "请求失败",
-        icon: "error",
-        duration: 2000
-      });
-    }
-  },
+  // queryBannerList: async () => {
+  //   try {
+  //     const res = await bannerSvc.getList();
+  //     if (res.success) {
+  //       const list = res.data;
+  //       bannerList.value = list?.map(v => ({ ...v, mobilePreview: v.mobilePreview ? `${host.api.baseUrl}/upload${v.mobilePreview}` : "" }));
+  //     } else {
+  //       bannerList.value = [];
+  //     }
+  //   } catch (error) {
+  //     wx.showToast({
+  //       title: "请求失败",
+  //       icon: "error",
+  //       duration: 2000
+  //     });
+  //   }
+  // },
 
-  queryBannersList: async () => {
-    try {
-      const res = await newSvc.getBannerList(5);
-      if (res.success) {
-        const list = res.data?.map(v => ({
-          ...v,
-          mainImage: `${host.api.baseUrl}/upload${v.mainImage}`,
-          postTime: util.formatDateTime(v.postTime)
-        }));
-        articleHome.value = list?.slice(0, 2);
-      } else {
-        articleHome.value = [];
-      }
-    } catch (error) {
-      wx.showToast({
-        title: "请求失败",
-        icon: "error",
-        duration: 2000
-      });
-    }
-  },
+  // queryBannersList: async () => {
+  //   try {
+  //     const res = await newSvc.getBannerList(5);
+  //     if (res.success) {
+  //       const list = res.data?.map(v => ({
+  //         ...v,
+  //         mainImage: `${host.api.baseUrl}/upload${v.mainImage}`,
+  //         postTime: util.formatDateTime(v.postTime)
+  //       }));
+  //       articleHome.value = list?.slice(0, 2);
+  //     } else {
+  //       articleHome.value = [];
+  //     }
+  //   } catch (error) {
+  //     wx.showToast({
+  //       title: "请求失败",
+  //       icon: "error",
+  //       duration: 2000
+  //     });
+  //   }
+  // },
 
   handComplaint() {
     wx.navigateTo({

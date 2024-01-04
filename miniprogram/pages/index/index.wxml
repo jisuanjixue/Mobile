@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 <view class="indexpage">
   <view class="imageBar" style="padding-bottom: {{firstMarginTop }}px;">
-    <l-capsule-bar capsule-color="white" title-color="#ffffff" title="云南省市场准入服务" bg-color="transparent" hidden-capsule="{{true}}">
+    <l-capsule-bar capsule-color="white" title-color="#ffffff" title="测试" bg-color="transparent" hidden-capsule="{{true}}">
       <image class="capsule-bar-bg" style="height:{{capsuleBarHeight + 300}}rpx;" src="../../assets/images/homepagenav.png"></image>
       <view class="login" style="top: {{capsuleBarHeight + 60}}rpx;">
         <view class="login-line">
