@@ -1,0 +1,167 @@
+<view class="register">
+  <l-toast id="my-toast" />
+  <navbar
+    title="登录"
+    showInfo="{{false}}"
+    hideLeftIcon="{{false}}"
+    height="10"
+    showSearch="{{false}}"
+    backImage="../../assets/images/pagenav.png"
+  ></navbar>
+  <view class="mainPage" style="margin-top: {{capsuleBarHeight-40}}rpx;">
+    <view class="title">
+      <image class="logoImage" src="../../../assets/images/logo.png" lazy-load="false" width="80" height="80" fit="cover"> </image>
+    </view>
+    <view class="tabs">
+      <l-segment
+        bind:linchange="changeTabs"
+        width="600"
+        l-line-class="line"
+        item-width="100"
+        item-height="5"
+        active-key="{{key}}"
+        active-color="#3a75c0"
+        inactive-color="#000"
+      >
+        <l-segment-item tab="个人登录" key="0" />
+        <l-segment-item tab="法人登录" key="1" />
+      </l-segment>
+    </view>
+    <view wx:if="{{key === '0'}}" class="tab">
+      <l-form-item name="phoneNumber">
+        <l-input
+          placeholder="请输入您手机号码"
+          label="手机号码:"
+          id="phoneNumber"
+          showRow="{{false}}"
+          value="{{loginForm.phoneNumber}}"
+          hide-label="{{false}}"
+          type="number"
+          clear="{{true}}"
+          required
+          animated-for-line
+          data-name="phoneNumber"
+          rules="{{loginFormRules.phoneNumberRules}}"
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+        />
+      </l-form-item>
+      <l-form-item name="smsVerifyCode">
+        <l-input
+          label="验证码:"
+          placeholder="请输入验证码"
+          id="smsVerifyCode"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          clear="{{true}}"
+          value="{{loginForm.smsVerifyCode}}"
+          required
+          animated-for-line
+          data-name="smsVerifyCode"
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+        >
+          <l-button type="default" slot="right" plain bind:lintap="handSend" disabled="{{isCounting}}">{{buttonText}} </l-button>
+        </l-input>
+      </l-form-item>
+      <l-form-item name="password">
+        <l-input
+          label="密码:"
+          placeholder="请输入密码"
+          id="password"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="password"
+          clear="{{true}}"
+          rules="{{loginFormRules.passwordRules}}"
+          value="{{loginForm.password}}"
+          required
+          animated-for-line
+           data-name="password"
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+        />
+      </l-form-item>
+      <view class="register" bind:tap="handToRegister">
+        <view class="registerText"> 注册 </view>
+      </view>
+      <view class="btn">
+        <van-button block color="#3972BB" type="primary" bind:click="submitPersonal">
+          <view class="textname">登录</view>
+        </van-button>
+      </view>
+    </view>
+    <view wx:if="{{key === '1'}}" class="tab">
+      <l-form-item name="phoneNumber">
+        <l-input
+          label="手机号码:"
+          placeholder="请输入您手机号码"
+          id="phoneNumber"
+          rules="{{loginFormsRules.phoneNumberRules}}"
+          showRow="{{false}}"
+          value="{{loginForms.phoneNumber}}"
+          hide-label="{{false}}"
+          type="number"
+          clear="{{true}}"
+          required
+          animated-for-line
+          data-name="phoneNumber"
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+        />
+      </l-form-item>
+      <l-form-item name="smsVerifyCode">
+        <l-input
+          label="验证码:"
+          placeholder="请输入验证码"
+          id="smsVerifyCode"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          value="{{loginForms.smsVerifyCode}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          data-name="smsVerifyCode"
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+        >
+          <l-button type="default" slot="right" plain bind:lintap="handSends" disabled="{{isCountings}}">{{buttonTexts}}</l-button>
+        </l-input>
+      </l-form-item>
+      <l-form-item name="password">
+        <l-input
+          label="密码:"
+          placeholder="请输入密码"
+          id="password"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="password"
+          rules="{{loginFormsRules.passwordRules}}"
+          value="{{loginForms.password}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          data-name="password"
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+        />
+      </l-form-item>
+      <view class="register" bind:tap="handToRegister">
+        <view class="registerText"> 注册 </view>
+      </view>
+      <view class="btn">
+        <van-button block color="#3972BB" type="primary" bind:click="submitCorporate">
+          <view class="textname">登录</view>
+        </van-button>
+      </view>
+    </view>
+    <view class="wechat" bind:tap="weLogin">
+      <view class="chatLine">
+        <van-icon name="wechat" color="green" size="25" />
+        <view class="chatText">微信授权登录</view>
+      </view>
+    </view>
+  </view>
+</view>

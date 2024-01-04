@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "component": true,
+  "usingComponents": {
+    "l-capsule-bar": "/miniprogram_npm/lin-ui/capsule-bar/index",
+    "van-search": "/miniprogram_npm/@vant/weapp/search/index",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu/index",
+    "van-dropdown-item": "@vant/weapp/dropdown-item/index"
+  }
+}

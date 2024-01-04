@@ -1,0 +1,34 @@
+<l-capsule-bar
+  capsule-color="white"
+  disable-home="{{false}}"
+  disable-back="{{false}}"
+  hidden-capsule="{{hideLeftIcon}}"
+  home-page="/pages/index/index"
+  title-color="#ffffff"
+  title="{{title}}"
+  bg-color="transparent"
+  bind:linlefttap="handBack"
+>
+  <image class="capsule-bar-bg" style="height:{{capsuleBarHeight + height}}rpx;" src="{{backImage}}"></image>
+  <view class="serach" wx:if="{{showSearch}}">
+    <van-search
+      custom-class="searchinput"
+      field-class="field"
+      value="{{ searchValue }}"
+      use-action-slot="{{showDropDown && !isLogin}}"
+      placeholder="请输入搜索关键词"
+      bind:change="onSearchClick"
+      bind:search="onComSearch"
+      bind:cancel="onSearchCancel"
+      shape="round"
+    >
+      <view slot="action" wx:if="{{showDropDown && !isLogin}}">
+        <van-dropdown-menu active-color="#3a75c0" custom-class="rightMenu" title-class="rightMenuTitle">
+          <van-dropdown-item value="{{ itemValue }}" options="{{ subjectTypeList }}" bind:change="onTypeSelect">
+          </van-dropdown-item>
+        </van-dropdown-menu>
+      </view>
+    </van-search>
+  </view>
+  <view class="textinfo content-title" wx:if="{{showInfo}}" style="padding-top: {{showSearch? '10rpx' : '30rpx'}}"> {{info}} </view>
+</l-capsule-bar>

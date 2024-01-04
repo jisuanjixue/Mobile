@@ -1,0 +1,209 @@
+/**index.wxss**/
+page {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  background-color: #ebecec;
+}
+
+.pageindex {
+  display: flex;
+  align-content: center;
+
+  .header {
+    text-align: center;
+    display: flex;
+    width: 100vw;
+    overflow: hidden;
+
+    .avatar-bg{
+      background-color: #ffffff;
+    }
+    .icon {
+      position: fixed;
+      top: 16%;
+      left: 50%;
+      color: white;
+      transform: translate(-50%, -50%);
+    }
+
+    .name {
+      position: fixed;
+      top: 22%;
+      font-size: 30rpx;
+      font-weight: 500;
+      left: 50%;
+      color: white;
+      transform: translate(-50%, -50%);
+    }
+
+    .register{
+      position: fixed;
+      top: 24%;
+      font-size: 30rpx;
+      font-weight: 500;
+      left: 50%;
+      color: white;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .my {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 720rpx;
+    height: 200rpx;
+    position: fixed;
+    // top: 26%;
+    left: 2%;
+    border-radius: 10px;
+    background-color: #ffffff !important;
+    box-shadow: 0 3px 3px -3px #3a75c0;
+
+    .my-content {
+      width: 700rpx;
+      text-align: center;
+      // display: flex;
+      margin-top: 15rpx;
+      .content1{
+        margin-top: 20rpx;
+      }
+      .iconColor{
+        color: #144FA9;
+      }
+      .myIcon{
+        height: 70rpx;
+        width: 70rpx;
+      }
+      .myText{
+        font-size: 14px;
+        margin-top: 20rpx;
+      }
+      .names1{
+        margin-top: 20rpx;
+        font-size: 14px;
+        font-weight: 400;
+        color:black
+      }
+    }
+    .names{
+      font-size: 26rpx;
+      font-weight: 500;
+      margin-top: 30rpx;
+    }
+  }
+
+  .mainpage {
+    margin-top: 630rpx;
+
+    .tousu {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      width: 720rpx;
+      background-color: #ffffff;
+      border-radius: 10rpx;
+      margin-left: -10rpx;
+      height: 340rpx;
+      .my-tousu {
+        .my-comp {
+          .grid {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+            .comp-icon {
+              margin-bottom: 15rpx;
+              .icon-image{
+                width: 50rpx;
+                height: 50rpx;
+              }
+              .comp-line{
+                border: 1rpx solid #999999;
+                width: 100rpx;
+                position: absolute;
+                margin-left: 60rpx;
+                margin-top: -30rpx;
+                z-index: 10;
+              }
+            }
+            .comp-text {
+              margin-bottom: 15rpx;
+              font-size: 25rpx;
+              font-weight: 400;
+            }
+            .comp-desc {
+              font-size: 25rpx;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+
+    .step {
+      margin-top: 15rpx;
+      padding: 20rpx 50rpx !important;
+    }
+
+    .stepdec {
+    }
+
+    .goodbad {
+      margin-top: 80rpx;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+      width: 720rpx;
+      background-color: #ffffff;
+      border-radius: 10rpx;
+      border-radius: 0 0 10px 10px;
+      margin-left: -10rpx;
+      height: 100rpx;
+    }
+
+    .goodbad view:last-child {
+      border-radius: 10rpx;
+    }
+
+    .item {
+      width: 700rpx;
+      margin-left: 60rpx;
+      margin-top: 60rpx;
+
+      .num {
+        color: #999999;
+        font-size: 25rpx;
+        font-weight: 400;
+        margin-bottom: 20rpx;
+        margin-left: 35rpx;
+      }
+
+      .text {
+        font-size: 25rpx;
+      }
+    }
+
+    .bomBtn {
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      overflow: hidden;
+      text-align: center;
+      .btnBack {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -20rpx;
+        height: 150rpx;
+      }
+
+      .btn {
+        width: 720rpx;
+        border-radius: 10rpx;
+      }
+    }
+  }
+}

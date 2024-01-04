@@ -1,0 +1,192 @@
+<!-- index.wxml -->
+<view class="indexpage">
+  <view class="imageBar" style="padding-bottom: {{firstMarginTop }}px;">
+    <l-capsule-bar capsule-color="white" title-color="#ffffff" title="云南省市场准入服务" bg-color="transparent" hidden-capsule="{{true}}">
+      <image class="capsule-bar-bg" style="height:{{capsuleBarHeight + 300}}rpx;" src="../../assets/images/homepagenav.png"></image>
+      <view class="login" style="top: {{capsuleBarHeight + 60}}rpx;">
+        <view class="login-line">
+          <view class="hello">您好！</view>
+          <view wx:if="{{isLogin}}">
+            <view class="name">{{userInfo.name}}</view>
+          </view>
+          <view bindtap="intoLogin" wx:if="{{!isLogin}}" class="loginName">请登录</view>
+        </view>
+      </view>
+      <view class="searchInput" style="top: {{capsuleBarHeight + 250}}rpx;">
+        <van-search
+          custom-class="search"
+          field-class="field"
+          input-class="input-search"
+          value="{{ searchValue }}"
+          placeholder="请输入您要查找的关键词"
+          background="#fafafa"
+          bind:click-input="onSearchClick"
+          shape="round"
+          bind:focus="intoSearch"
+        />
+      </view>
+    </l-capsule-bar>
+  </view>
+
+  <view class="mainpage">
+    <view class="newNotice">
+      <image class="noticeImage newImage" src="../../assets/images/newNotice.png" lazy-load="false">
+        <swiper class="swiper_container" indicator-color="#888" autoplay interval="5000" duration="1000" circular vertical>
+          <block wx:for="{{news}}" wx:key="id">
+            <swiper-item bindtap="onItemClick" data-id="{{item.id}}">
+              <view class="swiper_item font-title"> {{item.title}} </view>
+              <view class="font-desc swiper_item_desc"> {{item.summary}} </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </image>
+    </view>
+    <swiper
+      class="banner"
+      autoplay
+      indicator-dots="{{ showIndicator }}"
+      indicator-active-color="#64769d"
+      style="height:{{deviceBarHeight === 164? '130px' : '120px' }}"
+    >
+      <block wx:for="{{bannerList}}" wx:key="id">
+        <swiper-item class="banner-item" catchtap="onBannerClick" data-source="{{item.source}}" data-sourceId="{{item.sourceId}}">
+          <image src="{{item.mobilePreview}}" class="banner-image" mode="heightFix" bindload="onBannerImageLoad" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <van-cell
+      title-style="color: #3a75c0"
+      value-class="cell-value"
+      border="{{false}}"
+      title="要闻动态"
+      value="查看更多"
+      size="large"
+      is-link
+      link-type="navigateTo"
+      url="/packageA/pages/news/index"
+    >
+      <view class="oneBarIcon" slot="icon"></view>
+    </van-cell>
+    <block wx:for="{{articleHome}}" wx:key="id" wx:if="{{articleHome.length > 0}}">
+      <view bindtap="onItemClick" data-id="{{item.id}}">
+        <van-card
+          custom-class="card"
+          thumb-mode="aspectFill"
+          thumb-class="cardImage"
+          title-class="cardTitle font-title"
+          price-class="price"
+          currency=""
+          title="{{item.title}}"
+          thumb="{{ item.mainImage }}"
+          lazy-load
+          link-type="navigateTo"
+          catchtap="onNewItemClick"
+          data-id="{{item.id}}"
+        >
+          <view slot="desc" class="desc font-desc"> {{item.summary || ""}} </view>
+        </van-card>
+      </view>
+      <van-divider hairline custom-style="margin: 5px 0" />
+    </block>
+    <view class="divi"></view>
+    <!-- <image class="checkimage" fit="fill" src="../../assets/images/清单查验.png" catchtap="onCkeckClick" /> -->
+    <view class="grid-item">
+      <view class="title-bar">
+        <view class="barIcon"></view>
+        <view class="yuntitle font-1">云中看</view>
+      </view>
+      <van-grid direction="horizontal" clickable column-num="2" custom-class="items" border="{{false}}" size="large">
+        <van-grid-item
+          icon-size="56px"
+          custom-class="item"
+          content-class="item-content"
+          icon="todo-list"
+          icon-class="con-ico"
+          text-class="con-tex"
+          icon-color="#ffffff"
+          text="问卷调查"
+          url="/packageD/pages/fileCheck/fileCheck"
+          link-type="navigateTo"
+        />
+        <van-grid-item
+          icon="wap-home-o"
+          custom-class="item"
+          content-class="item-content"
+          icon-class="con-ico"
+          text-class="con-tex"
+          icon-color="#ffffff"
+          text="行政主体"
+          url="/packageD/pages/adminSubject/adminSubject"
+          link-type="navigateTo"
+        />
+      </van-grid>
+      <view class="title-bar">
+        <view class="barIcon"></view>
+        <view class="yuntitle">云上问</view>
+      </view>
+      <van-grid direction="horizontal" clickable column-num="2" custom-class="items" border="{{false}}" size="large">
+        <van-grid-item
+          icon="smile-comment-o"
+          custom-class="item1"
+          content-class="item-content1"
+          icon-class="con-ico1"
+          text-class="con-tex1"
+          icon-color="#ffffff"
+          text="热点问答"
+          url="/packageF/pages/publish/publish"
+          link-type="navigateTo"
+        />
+        <van-grid-item
+          icon="service-o"
+          custom-class="item1"
+          content-class="item-content1"
+          icon-class="con-ico1"
+          text-class="con-tex1"
+          icon-color="#ffffff"
+          text="智能客服"
+          url="/packageF/pages/intelligentService/intelligentService"
+          link-type="navigateTo"
+        />
+      </van-grid>
+      <view class="title-bar">
+        <view class="barIcon"></view>
+        <view class="yuntitle">云监督</view>
+      </view>
+      <van-grid direction="horizontal" clickable column-num="2" custom-class="items" border="{{false}}" size="large">
+        <van-grid-item
+          icon="bullhorn-o"
+          custom-class="item2"
+          content-class="item-content2"
+          icon-class="con-ico2"
+          text-class="con-tex2"
+          icon-color="#ffffff"
+          text="违规处置"
+          url="/packageG/pages/weigui/weigui"
+          link-type="navigateTo"
+        />
+        <van-grid-item
+          icon="bulb-o"
+          custom-class="item"
+          content-class="item-content"
+          icon-class="con-ico"
+          text-class="con-tex"
+          icon-color="#ffffff"
+          text="线索举报"
+          bind:click="handComplaint"
+        />
+        <van-grid-item
+          icon="notes-o"
+          custom-class="item"
+          content-class="item-content"
+          icon-class="con-ico"
+          text-class="con-tex"
+          icon-color="#ffffff"
+          text="典型案例"
+          url="/packageD/pages/case/index"
+          link-type="navigateTo"
+        />
+      </van-grid>
+    </view>
+  </view>
+  <view class="version" wx:if="{{version}}"> 当前版本： {{version}} </view>
+</view>

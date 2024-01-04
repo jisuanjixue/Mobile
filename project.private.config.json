@@ -1,0 +1,79 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "miniprogram-3",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": true,
+    "useIsolateContext": true
+  },
+  "libVersion": "3.1.5",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "",
+          "pathName": "packageE/pages/complaint/complaint",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageD/pages/codingQuestionnaire/codingQuestionnaire",
+          "query": "scene=id%3D1176801279024824320",
+          "launchMode": "default",
+          "scene": 1047
+        },
+        {
+          "name": "",
+          "pathName": "packageE/pages/consultDetail/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageD/pages/fileDetail/fileDetail",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/register/register",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageA/pages/news/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageF/pages/intelligentService/intelligentService",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "packageB/pages/checkDetail/checkDetail",
+          "query": "ItemId=6b3f7f94-fb7e-42b6-a720-ccf8ccc5bf6d&SearchId=74ade363-c88e-4157-8efd-3c304135e3ce&ItemName=%E7%A6%81%E6%AD%A2%E5%87%86%E5%85%A5",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

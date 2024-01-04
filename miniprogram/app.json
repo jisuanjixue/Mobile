@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/negative/index",
+    "pages/efficacy/index",
+    "pages/user/index"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#555",
+    "selectedColor": "#3a75c0",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./assets/images/unhome.png",
+        "selectedIconPath": "./assets/images/home.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "iconPath": "./assets/images/unme.png",
+        "selectedIconPath": "./assets/images/me.png",
+        "text": "用户中心"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/register/register",
+        "pages/login/login"
+      ]
+    },
+    {
+      "root": "packageB",
+      "pages": [
+      ]
+    },
+    {
+      "root": "packageC",
+      "pages": [
+      ]
+    },
+    {
+      "root": "packageD",
+      "pages": [
+      ]
+    },
+    {
+      "root": "packageE",
+      "pages": [
+      ]
+    },
+    {
+      "root": "packageF",
+      "pages": [
+      ]
+    },
+    {
+      "root": "packageG",
+      "pages": [
+      ]
+    }
+  ],
+  "usingComponents": {
+    "van-config-provider": "@vant/weapp/config-provider/index"
+  },
+  "navigateToMiniProgramAppIdList": ["wxc45b3b8ace04ecd3"],
+  "plugins": {},
+  "requiredBackgroundModes": [
+    "location"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "singlePage": {
+    "navigationBarFit": "float"
+  },
+  "sitemapLocation": "sitemap.json"
+}

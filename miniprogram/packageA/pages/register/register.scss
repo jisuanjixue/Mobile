@@ -1,0 +1,52 @@
+page {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  background-color: #ffffff;
+}
+
+.mainPage {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-size: 40rpx;
+    font-weight: 600;
+    margin-top: 30rpx;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700rpx;
+    margin-top: 120rpx;
+
+    .line {
+      width: 10rpx;
+      height: 5rpx;
+    }
+  }
+
+  .tab {
+    margin-top: 60rpx;
+  }
+
+  .btn {
+    margin-top: 80rpx;
+    .textname {
+      margin-left: 30rpx;
+      font-size: 18px;
+      letter-spacing: 30rpx;
+      font-weight: 600;
+    }
+  }
+
+  .code{
+    margin-left: -52rpx !important;
+    width: 250rpx !important;
+  }
+}

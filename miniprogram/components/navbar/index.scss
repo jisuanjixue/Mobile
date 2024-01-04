@@ -1,0 +1,45 @@
+.capsule-bar-bg {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@mixin component {
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
+  
+  position: relative;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 412px) and (min-width: 300px) {
+  .textinfo {
+    @include component;
+  }
+}
+
+@media screen and (max-width: 430px) and (min-width: 390px)  {
+  .textinfo {
+    @include component;
+  }
+}
+
+.serach {
+  margin-top: 15rpx;
+  position: relative;
+  width: 700rpx;
+  // margin-left: 10rpx;
+}
+
+.searchinput {
+  background: none !important;
+}
+.rightMenu{
+  background-color: transparent;
+  box-shadow: none !important;
+}
+.rightMenuTitle{
+  color: #ffffff;
+}

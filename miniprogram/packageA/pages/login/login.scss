@@ -1,0 +1,83 @@
+page {
+  box-sizing: border-box;
+  padding: 0 24rpx;
+  background-color: #ffffff;
+}
+
+.mainPage {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100rpx;
+    .logoImage {
+      width: 200rpx;
+      height: 200rpx;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700rpx;
+    margin-top: 120rpx;
+
+    .line {
+      width: 10rpx;
+      height: 5rpx;
+    }
+  }
+
+  .tab {
+    margin-top: 60rpx;
+  }
+
+  .register{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20rpx;
+    margin-right: 20rpx;
+    .shuxian{
+      color: #888;
+      margin-right: 15rpx;
+      height: 50rpx
+    }
+    .registerText{
+      font-size: 16px;
+    }
+  }
+
+  .btn {
+    margin-top: 80rpx;
+    .textname {
+      margin-left: 30rpx;
+      font-size: 18px;
+      letter-spacing: 30rpx;
+      font-weight: 600;
+    }
+  }
+
+  .code {
+    margin-left: -52rpx !important;
+    width: 250rpx !important;
+  }
+
+  .wechat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100rpx;
+    .chatLine{
+      display: flex;
+      .chatText{
+        color: #888;
+        font-size: 16px;
+      }
+    }
+  }
+}

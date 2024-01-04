@@ -1,0 +1,299 @@
+<view class="register">
+  <l-toast id="my-toast" />
+  <navbar
+    title="注册"
+    showInfo="{{false}}"
+    hideLeftIcon="{{false}}"
+    height="10"
+    showSearch="{{false}}"
+    backImage="../../assets/images/pagenav.png"
+  ></navbar>
+  <view class="mainPage" style="margin-top: {{capsuleBarHeight-40}}rpx;">
+    <view class="title"> 注册账号</view>
+    <view class="tabs">
+      <l-segment
+        bind:linchange="changeTabs"
+        width="600"
+        l-line-class="line"
+        item-width="100"
+        item-height="5"
+        active-key="{{key}}"
+        active-color="#3a75c0"
+        inactive-color="#000"
+      >
+        <l-segment-item tab="个人注册" key="one" />
+        <l-segment-item tab="法人注册" key="two" />
+      </l-segment>
+    </view>
+    <view wx:if="{{key === 'one'}}" class="tab">
+      <!-- <l-form is-submit-validate="{{false}}" id="my-form" name="registerForm" bind:linsubmit="submitPersonal" l-form-btn-class="l-form-btn-class"> -->
+      <l-form-item>
+        <l-input
+          placeholder="请输入您的姓名"
+          id="name"
+          label="姓名:"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          value="{{registerForm.name}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          rules="{{registerFormRules.nameRules}}"
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+          data-name="name"
+        />
+      </l-form-item>
+      <l-form-item name="idTypeId">
+        <l-input
+          label="证件类型:"
+          placeholder="请选择身份证件类型"
+          id="idTypeId"
+          showRow="{{false}}"
+          disabled="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          bind:linfocus="onSelectChange"
+          value="{{idType}}"
+          data-name="idTypeId"
+          required
+          animated-for-line
+          rules="{{registerFormRules.idTypeRules}}"
+        />
+      </l-form-item>
+      <l-form-item name="idNumber">
+        <l-input
+          label="证件号码:"
+          placeholder="请输入身份证件号码"
+          id="idNumber"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="digit"
+          value="{{registerForm.idNumber}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          rules="{{registerFormRules.idNumberRules}}"
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+          data-name="idNumber"
+        />
+      </l-form-item>
+      <l-form-item name="phoneNumber">
+        <l-input
+          placeholder="请输入手机号"
+          label="手机号码:"
+          id="phoneNumber"
+          showRow="{{false}}"
+          value="{{registerForm.phoneNumber}}"
+          hide-label="{{false}}"
+          type="number"
+          clear="{{true}}"
+          required
+          animated-for-line
+          rules="{{registerFormRules.phoneNumberRules}}"
+          bind:lininput="onChange"
+           bind:linclear="onClear"
+          data-name="phoneNumber"
+        />
+      </l-form-item>
+      <l-form-item name="smsVerifyCode">
+        <l-input
+          label="验证码:"
+          placeholder="请输入验证码"
+          id="smsVerifyCode"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          clear="{{true}}"
+          value="{{registerForm.smsVerifyCode}}"
+          required
+          animated-for-line
+          bind:lininput="onChange"
+            bind:linclear="onClear"
+          data-name="smsVerifyCode"
+        >
+          <l-button type="default" slot="right" plain bind:lintap="handSend" disabled="{{isCounting}}">{{buttonText}} </l-button>
+        </l-input>
+      </l-form-item>
+      <l-form-item name="password">
+        <l-input
+          label="密码:"
+          placeholder="请输入密码"
+          id="password"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="password"
+          clear="{{true}}"
+          rules="{{registerFormRules.passwordRules}}"
+          value="{{registerForm.password}}"
+          required
+          animated-for-line
+          bind:lininput="onChange"
+          bind:linclear="onClear"
+          data-name="password"
+        />
+      </l-form-item>
+      <view class="btn">
+        <van-button block color="#3972BB" type="primary" bind:click="submitPersonal">
+          <view class="textname">注册</view>
+        </van-button>
+      </view>
+      <!-- </l-form> -->
+    </view>
+    <view wx:if="{{key === 'two'}}" class="tab">
+      <!-- <l-form is-submit-validate="{{true}}" name="registerForms" bind:linsubmit="submitCorporate" l-form-btn-class="l-form-btn-class"> -->
+      <l-form-item name="name">
+        <l-input
+          label="机构名称:"
+          rules="{{registerFormsRules.namesRules}}"
+          placeholder="请输入机构名称"
+          id="name"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          value="{{registerForms.name}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+          data-name="name"
+        />
+      </l-form-item>
+      <l-form-item name="typeId">
+        <l-input
+          label="主体类型:"
+          placeholder="请选择市场主体类型"
+          id="typeId"
+          rules="{{registerFormsRules.typeIdRules}}"
+          showRow="{{false}}"
+          disabled="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          bind:linfocus="onSelectsChange"
+          required
+          value="{{typeName}}"
+          animated-for-line
+          bind:lininput="onChanges"
+        />
+      </l-form-item>
+      <l-form-item name="industryTypeId">
+        <l-input
+          label="行业类型:"
+          placeholder="请选择市场主体行业类型"
+          id="industryTypeId"
+          rules="{{registerFormsRules.idTypeIndustryRules}}"
+          showRow="{{false}}"
+          disabled="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          bind:linfocus="onSelectIndustryChange"
+          required
+          value="{{industryTypeName}}"
+          animated-for-line
+          bind:lininput="onChanges"
+        />
+      </l-form-item>
+      <l-form-item name="code">
+        <l-input
+          label="社会信用代码:"
+          l-label-class="code"
+          placeholder="请统一社会信用代码"
+          id="code"
+          rules="{{registerFormsRules.codeRules}}"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          value="{{registerForms.code}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          bind:lininput="onChanges"
+        />
+      </l-form-item>
+      <l-form-item name="phoneNumber">
+        <l-input
+          label="手机号码:"
+          placeholder="请输入手机号"
+          id="phoneNumber"
+          rules="{{registerFormsRules.phoneNumberRules}}"
+          showRow="{{false}}"
+          value="{{registerForms.phoneNumber}}"
+          hide-label="{{false}}"
+          type="number"
+          clear="{{true}}"
+          required
+          animated-for-line
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+          data-name="phoneNumber"
+        />
+      </l-form-item>
+      <l-form-item name="smsVerifyCode">
+        <l-input
+          label="验证码:"
+          placeholder="请输入验证码"
+          id="smsVerifyCode"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="text"
+          value="{{registerForms.smsVerifyCode}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          bind:lininput="onChanges"
+           bind:linclear="onClears"
+          data-name="smsVerifyCode"
+        >
+          <l-button type="default" slot="right" plain bind:lintap="handSends" disabled="{{isCountings}}">{{buttonTexts}}</l-button>
+        </l-input>
+      </l-form-item>
+      <l-form-item name="password">
+        <l-input
+          label="密码:"
+          placeholder="请输入密码"
+          id="password"
+          showRow="{{false}}"
+          hide-label="{{false}}"
+          type="password"
+          rules="{{registerFormsRules.passwordRules}}"
+          value="{{registerForms.password}}"
+          clear="{{true}}"
+          required
+          animated-for-line
+          bind:lininput="onChanges"
+          bind:linclear="onClears"
+          data-name="password"
+        />
+      </l-form-item>
+      <view class="btn">
+        <van-button block color="#3972BB" type="primary" bind:click="submitCorporate">
+          <view class="textname">注册</view>
+        </van-button>
+      </view>
+      <!-- </l-form> -->
+    </view>
+    <van-popup show="{{ showType }}" round position="bottom" custom-style="height: 60%">
+      <van-picker
+        columns="{{ idTypeList }}"
+        show-toolbar
+        bind:cancel="onSelectClose"
+        bind:confirm="onSelectConfirm"
+        bind:change="onListChange"
+      />
+    </van-popup>
+    <van-popup show="{{ showTypes }}" round position="bottom" custom-style="height: 60%">
+      <van-picker columns="{{ typeIdList }}" show-toolbar bind:cancel="onSelectsClose" bind:confirm="onSelectsConfirm" />
+    </van-popup>
+    <van-popup show="{{ showIndustryTypes }}" round position="bottom" custom-style="height: 60%">
+      <van-picker
+        columns="{{ industryCategory }}"
+        show-toolbar
+        bind:cancel="onSelectIndustryClose"
+        bind:confirm="onSelectIndustryConfirm"
+      />
+    </van-popup>
+  </view>
+</view>

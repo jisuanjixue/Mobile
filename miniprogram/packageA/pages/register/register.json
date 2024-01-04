@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "l-form":"/miniprogram_npm/lin-ui/form/index",
+    "l-form-item":"/miniprogram_npm/lin-ui/form-item/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-toast": "/miniprogram_npm/lin-ui/toast/index",
+    "l-input": "/miniprogram_npm/lin-ui/input/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "navbar": "/components/navbar/index"
+  },
+   "navigationStyle": "custom"
+}
