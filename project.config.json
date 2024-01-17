@@ -6,7 +6,7 @@
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "projectname": "市场准入评估",
+  "projectname": "",
   "setting": {
     "useCompilerPlugins": [
       "typescript",
@@ -33,7 +33,7 @@
   "simulatorPluginLibVersion": {},
   "condition": {},
   "srcMiniprogramRoot": "miniprogram/",
-  "appid": "wx73d59541772e481f",
+  "appid": "",
   "libVersion": "3.1.5",
   "editorSetting": {
     "tabIndent": "insertSpaces",
